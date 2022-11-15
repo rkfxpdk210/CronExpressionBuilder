@@ -1,4 +1,21 @@
 # CronExpressionBuilder
+#### 사용 방법
+```
+String exp = "10_0*_0*_0_0"
+CronExpressionBuilder cronExpBuilder = new CronExpressionBuilder(exp);
+String cronExp = cronExpBuilder.build(); // "10 * * * * ?"
+String startTime = "2022-10-10 12:12:30"
+String nextStartTime = cronExpBuilder.getNextStartTime(startTime,null) // "2022-10-10 12:12:40"
+```
+
+#### Method
+```
+build(): 저장된 날짜 정보에 맞게 Cron식 생성
+getNextStartTime(String startTime, String format): startTime 이후 해당 Cron식을 적용한 다음 시작 시간을 입력한 format에 맞게 변환하여 return.
+startTime의 포맷은 입력한 format과 같아야한다.
+format의 default는 "yyyy-mm-dd hh:MM:ss"이며 default로 설정하고 싶으면 format을 null로 선언한다. ex) getNextStartTIme(startTime,null)
+```
+
 #### 유의 사항
 ```
 "Second(*)_Minute(*)_Hour(*)_Date(*)_Month(*)" 형식으로 입력된 포맷을 파싱하여 Cron식 생성
