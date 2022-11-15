@@ -13,7 +13,7 @@ String nextStartTime = cronExpBuilder.getNextStartTime(startTime,null) // "2022-
 build(): 저장된 날짜 정보에 맞게 Cron식 생성
 getNextStartTime(String startTime, String format): startTime 이후 해당 Cron식을 적용한 다음 시작 시간을 입력한 format에 맞게 변환하여 return.
 startTime의 포맷은 입력한 format과 같아야한다.
-format의 default는 "yyyy-mm-dd hh:MM:ss"이며 default로 설정하고 싶으면 format을 null로 선언한다. ex) getNextStartTIme(startTime,null)
+format의 default는 "yyyy-MM-dd HH:mm:ss"이며 default로 설정하고 싶으면 format을 null로 선언한다. ex) getNextStartTIme(startTime,null)
 ```
 
 #### 유의 사항
