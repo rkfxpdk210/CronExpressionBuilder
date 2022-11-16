@@ -54,17 +54,12 @@ public class CronExpressionBuilder {
 	/**
 	 * 해당 Cron식이 적용된 다음 스케줄 시작 시간 
 	 * @param startDate 시작날짜
-	 * @param format startDate의 날짜 포맷, default: yyyy-mm-dd hh:MM:ss
+	 * @param format startDate의 날짜 포맷, default: yyyy-MM-dd HH:mm:ss
 	 * @return format에 맞게 변환된 다음 스케줄 시간
 	 */
 	public String getNextStartTime(String startDate,String format) {
-		SimpleDateFormat dateFormat; 
-		if(format != null) {
-			dateFormat = new SimpleDateFormat(format);
-		}
-		else {
-			dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
-		}
+		format = format==null ? "yyyy-MM-dd HH:mm:ss" : format;
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format); 
 		
 		try {
 			CronExpression cronExp = new CronExpression(build());
